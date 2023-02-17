@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de compras</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/959068a34f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <img src="./img/LOGO NEGRO VG MAYOR TAMAÑO.png" alt="logo" height="100px">
+    <h1>Bienvenido a tu carrito de compras favorito</h1>
+  </header>
+  <main>
+    <div class="itemform">
+      <div id="carrito">
+        <div id="headerCarrito">
+          <img src="./img/LOGO NEGRO VG MAYOR TAMAÑO.png" alt="carrito" height="50px">
+          <h2>Carrito de compras</h2>
+        </div>
+        <div id="error">
+          <p></p>
+        </div>
+        <div id="bodycarrito">
+          <div id="container">
+            <p>Arrastre aquí los elementos</p>
+            <!--Aqui ira un ul y li con los items depositados-->
+            <div id="list">
+              <ul>
+              </ul>
+            </div>
+          </div>
+          <div id="precio">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h2>Precio total:</h2>
+            <p>$ <span>0</span></p> <!--Aqui ira el precio total-->
+          </div>
+        </div>
+        <div id="buttons">
+          <form id="button">
+            <input type="submit" value="Delete all" id="deleteall">
+          </form>
+          <div id="trash">
+            <i class="fa-solid fa-trash"></i>
+          </div>
+        </div>
+      </div>
+      <h2 class="title">Procesadores</h2>
+      <div class="items">
+        <div class="item" draggable="true">
+          <p>AMD Ryzen 5 5500 3.6GHz Box</p>
+          <img src="./img/amd-ryzen-5-5500.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">108.90</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>AMD Ryzen 5 5600G 4.40GHz</p>
+          <img src="./img/amd-ryzen-5-5600g.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">355.99</span></p>
+        </div>            
+        <div class="item" draggable="true">
+          <p>Intel Core i5-11400F 2.6 GHz</p>
+          <img src="./img/intel-core-i5-11400f.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">131.86</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>AMD Ryzen 7 5800X 3.8GHz</p>
+          <img src="./img/amd-ryzen-7-5800x3d-34ghz.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">245.90</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>Intel Core i5-13400 2.5 GHz/4.6 GHz</p>
+          <img src="./img/intel-core-i5-13400.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">239.89</span></p>
+        </div>            
+        <div class="item" draggable="true">
+          <p>Intel Core i9-13900K 3 GHz Box</p>
+          <img src="./img/1643-intel-core-i9-13900k-3-ghz-box.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">648</span></p>
+        </div>
+      </div>
+      <h2 class="title">Monitores</h2>
+      <div class="items">
+        <div class="item" draggable="true">
+          <p>Newskill Icarus IC27Q4-V2P 27" LED 144Hz</p>
+          <img src="./img/v2p-27-led-qhd-144hz-g-sync-compatible-curva-3ce77394-.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">239</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>AOC 24B2XDAM 23.8" LED FullHD</p>
+          <img src="./img/1946-aoc-24b2xdam-238-led-fullhd.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">128.99</span></p>
+        </div>            
+        <div class="item" draggable="true">
+          <p>Acer V6 V226HQL 21.5" LED FullHD</p>
+          <img src="./img/acer-v6-v226hql-215-led-fullhd.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">89</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>LG 27MK400H-B 27" LED Full HD</p>
+          <img src="./img/1.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">139.98</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>Nilox NXM22FHD01 21.5" LED FullHD</p>
+          <img src="./img/1749-nilox-nxm22fhd01-215-led-fullhd.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">89.99</span></p>
+        </div>            
+        <div class="item" draggable="true">
+          <p>Keep Out XGM22BV2 21.5" LED FullHD 75Hz</p>
+          <img src="./img/1303-keep-out-xgm22bv2-215-led-fullhd-75hz.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">91.98</span></p>
+        </div>
+      </div>
+      <h2 class="title">Tarjetas madre</h2>
+      <div class="items">
+        <div class="item" draggable="true">
+          <p>Gigabyte B560M DS3H V2</p>
+          <img src="./img/1293-gigabyte-b560m-ds3h-v2.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">92.99</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>Asus TUF GAMING B550-PLUS</p>
+          <img src="./img/155-asus-tuf-gaming-b550-plus.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">149.99</span></p>
+        </div>            
+        <div class="item" draggable="true">
+          <p>Asus TUF GAMING B660-PLUS WIFI D4</p>
+          <img src="./img/1176-asus-tuf-gaming-b660-plus-wifi-d4.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">221.51</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>Gigabyte B660M DS3H DDR4</p>
+          <img src="./img/1186-gigabyte-b660m-ds3h-ddr4.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">109.99</span></p>
+        </div>
+        <div class="item" draggable="true">
+          <p>Gigabyte B660M DS3H DDR4</p>
+          <img src="./img/1549-asus-prime-z790-p-wifi.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">292.99</span></p>
+        </div>            
+        <div class="item" draggable="true">
+          <p>Asus TUF GAMING B550M-PLUS</p>
+          <img src="./img/1883-asus-tuf-gaming-b550m-plus-opiniones.webp" alt="item" height="100px" draggable="false">
+          <p>$ <span class="price">142.99</span></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Curso Frontend HTML, CSS y JS</p>
+  </footer>
+  <script src="./js/app.js"></script>
+</body>
+</html>

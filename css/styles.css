@@ -1,0 +1,151 @@
+/*Generales*/
+body{
+  background-color: #607d8b;
+  font-family: 'Josefin Sans', sans-serif;
+}
+header, footer{
+  color: white;
+  width: 800px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h1{
+  margin-right: auto;
+  display: block;
+  font-size: 24px;
+}
+header img{
+  margin-left: auto;
+}
+header{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+main{
+  width: 800px;
+  text-align: center;
+  margin: 30px auto 0px auto;
+}
+h2{
+  color: white;
+  font-size: 20px;
+}
+li{
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid white;
+}
+input{
+  font-family: 'Josefin Sans', sans-serif;
+}
+/*Ids y Clases*/
+#carrito{
+  background-color: #8eacbb;
+  margin-left: 500px;
+  float: right;
+  height: auto;
+  width: 400px;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  position: sticky;
+  top: 20px;
+}
+#headerCarrito{
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+#headerCarrito img{
+  float: right;
+  margin-left: auto;
+}
+#headerCarrito h2{
+  margin-right: auto;
+}
+#error{
+  color: red;
+  padding-top: 20px;
+}
+#bodycarrito{
+  display: flex;
+  align-items: center;
+}
+#container{
+  background-color: #34515e;
+  color: white;
+  padding-bottom: 20px;
+  margin: 20px 0px 20px 20px;
+  border: 1px solid black;
+  width: 300px;
+}
+#container p{
+  width: 220px;
+  margin: 20px auto 0px auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+}
+#precio{
+  font-size: 20px;
+  color: white;
+  padding: 20px;
+}
+#precio i{
+  font-size: 30px;
+}
+#precio h2{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#buttons{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 50px;
+}
+#deleteall{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #34515e;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#trash i{
+  font-size: 30px;
+  color: white;
+}
+.items{
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.title{
+  width: 340px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid white;
+}
+.item{
+  padding-top: auto;
+  padding-bottom: auto;
+  background-color: white;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.item p{
+  width: 130px;
+  color: black;
+}
+.item img{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
