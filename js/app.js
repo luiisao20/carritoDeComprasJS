@@ -13,11 +13,30 @@ var itemPrice;
 var listItems;
 var error;
 var numberList;
-var ietmsList;
 var itemsaved;
 
 function moviendoComponente(event){
     item = event.target;
+}
+
+function moviendoCom(event){
+    itemsaved = event.target;
+}
+
+function borrarDato(event){
+    console.log('Borrando');
+    console.log(itemsaved.getElementsByTagName('span')[0].innerText);
+}
+
+function deletingItem(){
+    let ietmList = document.getElementsByClassName('itemlist');
+    let trash = document.getElementById('trash');
+    
+    for (let itemsaved of ietmList) {
+        itemsaved.addEventListener('dragstart', moviendoCom);
+    }
+    trash.addEventListener('dragover', e=>{e.preventDefault()});
+    trash.addEventListener('drop', borrarDato);
 }
 
 function insertarDatos(event){
@@ -31,7 +50,7 @@ function insertarDatos(event){
     itemPrice = item.getElementsByTagName('span')[0].innerHTML
     ul = list.getElementsByTagName('ul')[0]
     price = precio.getElementsByTagName('span')[0]
-    ul.innerHTML += `<li id="itemsList" draggable="true">${numberList}. ${itemName}</li>`
+    ul.innerHTML += `<li class="itemlist" draggable="true">${numberList}. <span>${itemName}</span></li>`
     
     if (price.innerText == '0') {
         priceTotal = 0
@@ -41,6 +60,7 @@ function insertarDatos(event){
     priceTotal += parseFloat(itemPrice)
     price.innerText = priceTotal.toFixed(2)
     console.log(listItems);
+    deletingItem();
     return true
 }
 
@@ -67,7 +87,7 @@ function domCargado(){
     list = document.getElementById('list');
     precio = document.getElementById('precio');
     formButton = document.getElementById('button');
-    error = document.getElementById('error')
+    error = document.getElementById('error');
 
     for (let item of items){
         item.addEventListener('dragstart', moviendoComponente)
