@@ -26,6 +26,9 @@ function moviendoCom(event){
 function borrarDato(event){
     console.log('Borrando');
     console.log(itemsaved.getElementsByTagName('span')[0].innerText);
+    let index = listItems.indexOf(itemsaved.getElementsByTagName('span')[0].innerText)
+    console.log(index);
+
 }
 
 function deletingItem(){
@@ -39,26 +42,38 @@ function deletingItem(){
     trash.addEventListener('drop', borrarDato);
 }
 
+function printElementsInUl(){
+    for (let i = 0; i < listItems.length; i++) {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${i + 1}. ` + listItems[i];
+        listItem.setAttribute('class', '')
+        ul.appendChild(listItem);
+    }
+}
+
 function insertarDatos(event){
     if (listItems.length >= 12) {
         error.innerText = 'La lista ya esta llena';
         return false
     }
-    numberList += 1
-    error.innerText = ''
-    itemName = item.getElementsByTagName('p')[0].innerHTML
-    itemPrice = item.getElementsByTagName('span')[0].innerHTML
-    ul = list.getElementsByTagName('ul')[0]
-    price = precio.getElementsByTagName('span')[0]
-    ul.innerHTML += `<li class="itemlist" draggable="true">${numberList}. <span>${itemName}</span></li>`
+    numberList += 1;
+    error.innerText = '';
+    itemName = item.getElementsByTagName('p')[0].innerHTML;
+    itemPrice = item.getElementsByTagName('span')[0].innerHTML;
+    ul = list.getElementsByTagName('ul')[0];
+    price = precio.getElementsByTagName('span')[0];
     
     if (price.innerText == '0') {
         priceTotal = 0
     }
 
-    listItems.push(itemName)
-    priceTotal += parseFloat(itemPrice)
-    price.innerText = priceTotal.toFixed(2)
+    listItems.push(itemName);
+    ul.innerHTML = '';
+
+    printElementsInUl();
+
+    priceTotal += parseFloat(itemPrice);
+    price.innerText = priceTotal.toFixed(2);
     console.log(listItems);
     deletingItem();
     return true
