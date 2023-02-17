@@ -14,6 +14,7 @@ var listItems;
 var error;
 var numberList;
 var itemsaved;
+var listPrices;
 
 function moviendoComponente(event){
     item = event.target;
@@ -25,10 +26,12 @@ function moviendoCom(event){
 
 function borrarDato(event){
     console.log('Borrando');
-    console.log(itemsaved.getElementsByTagName('span')[0].innerText);
-    let index = listItems.indexOf(itemsaved.getElementsByTagName('span')[0].innerText)
-    console.log(index);
-
+    itemToDelete = itemsaved.getElementsByTagName('span')[0].innerHTML
+    let index = listItems.indexOf(itemToDelete)
+    listItems.splice(index, 1);
+    listPrices.splice(index, 1);
+    console.log(listItems);
+    printElementsInUl();
 }
 
 function deletingItem(){
@@ -43,12 +46,23 @@ function deletingItem(){
 }
 
 function printElementsInUl(){
+    ul.innerHTML = '';
     for (let i = 0; i < listItems.length; i++) {
         const listItem = document.createElement('li');
-        listItem.textContent = `${i + 1}. ` + listItems[i];
-        listItem.setAttribute('class', '')
+        listItem.setAttribute('class', 'itemlist')
+        listItem.setAttribute('draggable', 'true')
+        const listItemText = document.createElement('span')
+        listItemText.textContent = listItems[i];
+        listItem.appendChild(document.createTextNode(i + 1 + '. '));
+        listItem.appendChild(listItemText);
         ul.appendChild(listItem);
     }
+    if (listItems.length == 0){
+        price.innerText = '0';
+        return false;
+    }
+    let totalPrice = listPrices.reduce((x, y) => {return x + y});
+    price.innerText = totalPrice.toFixed(2);
 }
 
 function insertarDatos(event){
@@ -56,24 +70,19 @@ function insertarDatos(event){
         error.innerText = 'La lista ya esta llena';
         return false
     }
-    numberList += 1;
     error.innerText = '';
     itemName = item.getElementsByTagName('p')[0].innerHTML;
     itemPrice = item.getElementsByTagName('span')[0].innerHTML;
     ul = list.getElementsByTagName('ul')[0];
     price = precio.getElementsByTagName('span')[0];
-    
-    if (price.innerText == '0') {
-        priceTotal = 0
-    }
+    listPrices.push(parseFloat(itemPrice));
 
     listItems.push(itemName);
-    ul.innerHTML = '';
 
     printElementsInUl();
 
-    priceTotal += parseFloat(itemPrice);
-    price.innerText = priceTotal.toFixed(2);
+    // priceTotal += parseFloat(itemPrice);
+    // price.innerText = priceTotal.toFixed(2);
     console.log(listItems);
     deletingItem();
     return true
@@ -93,6 +102,7 @@ function deleteAll(event){
     console.log('Se puede borrar');
     ul.innerHTML = '';
     price.innerText = '0';
+    listPrices = []
     return true
 }
 
@@ -108,8 +118,8 @@ function domCargado(){
         item.addEventListener('dragstart', moviendoComponente)
     }
 
-    listItems = []
-    numberList = 0
+    listItems = [];
+    listPrices = [];
     formButton.addEventListener('submit', deleteAll)
     container.addEventListener('dragover', e=>{e.preventDefault()});
     container.addEventListener('drop', insertarDatos);
