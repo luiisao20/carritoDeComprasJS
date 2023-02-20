@@ -15,6 +15,11 @@ var error;
 var numberList;
 var itemsaved;
 var listPrices;
+var buttonsave;
+var nameCar;
+var getCarrito;
+var savedCar;
+var errorGet;
 
 function moviendoComponente(event){
     item = event.target;
@@ -73,16 +78,12 @@ function insertarDatos(event){
     error.innerText = '';
     itemName = item.getElementsByTagName('p')[0].innerHTML;
     itemPrice = item.getElementsByTagName('span')[0].innerHTML;
-    ul = list.getElementsByTagName('ul')[0];
-    price = precio.getElementsByTagName('span')[0];
     listPrices.push(parseFloat(itemPrice));
 
     listItems.push(itemName);
 
     printElementsInUl();
 
-    // priceTotal += parseFloat(itemPrice);
-    // price.innerText = priceTotal.toFixed(2);
     console.log(listItems);
     deletingItem();
     return true
@@ -113,6 +114,13 @@ function domCargado(){
     precio = document.getElementById('precio');
     formButton = document.getElementById('button');
     error = document.getElementById('error');
+    buttonsave = document.getElementById('buttonsave');
+    nameCar = document.getElementById('namecarrito');
+    getCarrito = document.getElementById('getcar');
+    savedCar = document.getElementById('savedcarrito');
+    errorGet = document.getElementById('errorget');
+    ul = list.getElementsByTagName('ul')[0];
+    price = precio.getElementsByTagName('span')[0];
 
     for (let item of items){
         item.addEventListener('dragstart', moviendoComponente)
@@ -120,9 +128,65 @@ function domCargado(){
 
     listItems = [];
     listPrices = [];
+
     formButton.addEventListener('submit', deleteAll)
     container.addEventListener('dragover', e=>{e.preventDefault()});
     container.addEventListener('drop', insertarDatos);
+    buttonsave.addEventListener('click', saveCarrito);
+    getCarrito.addEventListener('click', recupCarSaved);
+}
+
+function saveCarrito(){
+
+    let nameSaved = localStorage.getItem(`${nameCar.value}`)
+    console.log(nameSaved);
+    
+    if (nameSaved !== null){
+        error.innerText = 'Este carrito ya existe!'
+        return false
+    } else if (listItems.length == 0){
+        error.innerText = 'No hay nada que guardar';
+        return false;
+    } else if (nameCar.value == '') {
+        error.innerText = 'Ingrese un nombre por favor';
+        return false
+    }
+    error.innerText = '';
+    errorGet.innerText = ''
+
+    listSaved = {
+        items: listItems,
+        price: listPrices
+    }
+    localStorage.setItem(`${nameCar.value}`,JSON.stringify(listSaved))
+
+    console.log('Guardado!');
+}
+
+function recupCarSaved() {
+    console.log('Se obtiene el carrito');
+    if (savedCar.value.length == 0){
+        console.log('No hay nombre');
+        savedCar.focus();
+        errorGet.innerText = 'Ingrese un nombre por favor'
+        return false
+    }
+    errorGet.innerText = ''
+    console.log(savedCar.value);
+    let listGet = localStorage.getItem(`${savedCar.value}`)
+
+    if (listGet == null){
+        console.log('No hay el carrito');
+        errorGet.innerText = 'No existe un carrito con ese nombre'
+        return false
+    }
+
+    let listObtained = JSON.parse(listGet)
+    errorGet.innerText = ''
+    listItems = listObtained.items
+    listPrices = listObtained.price
+    printElementsInUl();
+    return true
 }
 
 document.addEventListener('DOMContentLoaded', domCargado);

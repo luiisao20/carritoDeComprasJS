@@ -18,40 +18,52 @@
     <h1>Bienvenido a tu carrito de compras favorito</h1>
   </header>
   <main>
+    <div>
     <div class="itemform">
-      <div id="carrito">
-        <div id="headerCarrito">
-          <img src="./img/LOGO NEGRO VG MAYOR TAMAÑO.png" alt="carrito" height="50px">
-          <h2>Carrito de compras</h2>
-        </div>
-        <div id="error">
-          <p></p>
-        </div>
-        <div id="bodycarrito">
-          <div id="container">
-            <p>Arrastre aquí los elementos</p>
-            <!--Aqui ira un ul y li con los items depositados-->
-            <div id="list">
-              <ul>
-              </ul>
+        <div id="carrito">
+          <div id="headerCarrito">
+            <img src="./img/LOGO NEGRO VG MAYOR TAMAÑO.png" alt="carrito" height="50px">
+            <h2>Carrito de compras</h2>
+          </div>
+          <div id="error">
+            <p></p>
+          </div>
+          <div id="bodycarrito">
+            <div id="container">
+              <p>Arrastre aquí los elementos</p>
+              <!--Aqui ira un ul y li con los items depositados-->
+              <div id="list">
+                <ul>
+                </ul>
+              </div>
+            </div>
+            <div id="precio">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <h2>Precio total:</h2>
+              <p>$ <span>0</span></p> <!--Aqui ira el precio total-->
             </div>
           </div>
-          <div id="precio">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <h2>Precio total:</h2>
-            <p>$ <span>0</span></p> <!--Aqui ira el precio total-->
+          <div id="savecarrito">
+            <label for="namecarrito">¡Nombra tu carrito y guárdalo!</label>
+            <input type="text" id="namecarrito" maxlength="20">
+            <button id="buttonsave"><i class="fa-solid fa-floppy-disk"></i></button>
+          </div>
+          <div id="buttons">
+            <form id="button">
+              <input type="submit" value="Delete all" id="deleteall">
+            </form>
+            <div id="trash">
+              <p> Arrastra aqui tus elementos a borrar</p>
+              <i class="fa-solid fa-trash"></i>
+            </div>
+          </div>
+          <div id="getcarrito">
+            <h2>¿Quieres recuperar un carrito guardado? Inserta su nombre</h2>
+            <input type="text" name="savedcarrito" id="savedcarrito">
+            <button id="getcar">recuperar</button>
+              <p id="errorget"></p>
           </div>
         </div>
-        <div id="buttons">
-          <form id="button">
-            <input type="submit" value="Delete all" id="deleteall">
-          </form>
-          <div id="trash">
-            <p> Arrastra aqui tus elementos a borrar</p>
-            <i class="fa-solid fa-trash"></i>
-          </div>
-        </div>
-      </div>
       <h2 class="title">Procesadores</h2>
       <div class="items">
         <div class="item" draggable="true">

@@ -43,7 +43,39 @@ li{
 input{
   font-family: 'Josefin Sans', sans-serif;
 }
+button{
+  background-color: #8eacbb;
+  border: none;
+  cursor: pointer;
+}
 /*Ids y Clases*/
+#getcarrito{
+  background-color: #8eacbb;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#getcarrito h2{
+  margin-bottom: 10px;
+}
+#getcarrito input{
+  background-color: #34515e;
+  color: white;
+  border-radius: 5px;
+  height: 30px;
+}
+#getcar{
+  background-color: #34515e;
+  border: 2px solid black;
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 20px;
+}
 #carrito{
   background-color: #8eacbb;
   margin-left: 500px;
@@ -69,7 +101,7 @@ input{
 #headerCarrito h2{
   margin-right: auto;
 }
-#error{
+#error, #errorget{
   color: red;
   padding-top: 20px;
 }
@@ -110,13 +142,38 @@ input{
   gap: 20px;
   margin-bottom: 10px;
 }
+#savecarrito{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+  border: 3px solid #34515e;
+  border-radius: 10px;
+  width: 300px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#savecarrito label{
+  width: 100px;
+}
+#savecarrito i{
+  color: white;
+  font-size: 40px;
+}
+#savecarrito input{
+  background-color: #34515e;
+  color: white;
+  height: 20px;
+  border-radius: 5px;
+}
 #deleteall{
   padding: 10px;
   border-radius: 5px;
   background-color: #34515e;
   color: white;
   font-weight: 700;
-  margin-bottom: 10px;
 }
 #trash{
   display: flex;
